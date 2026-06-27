@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Studio Zero-1 Dynamic Island Overlay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-fixed": "#351000",
+                        "primary": "#adc6ff",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#c1c6d7",
+                        "inverse-primary": "#005bc1",
+                        "on-surface": "#e2e2e2",
+                        "tertiary": "#ffb595",
+                        "on-primary-fixed-variant": "#004493",
+                        "error-container": "#93000a",
+                        "on-primary": "#002e69",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "tertiary-container": "#ef6719",
+                        "secondary": "#c8c6c5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-low": "#1b1b1b",
+                        "inverse-on-surface": "#303030",
+                        "on-primary-fixed": "#001a41",
+                        "surface-tint": "#adc6ff",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-dim": "#131313",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-primary-container": "#00285c",
+                        "inverse-surface": "#e2e2e2",
+                        "primary-container": "#4b8eff",
+                        "on-secondary-fixed-variant": "#474746",
+                        "secondary-container": "#474746",
+                        "tertiary-fixed": "#ffdbcc",
+                        "background": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "surface": "#131313",
+                        "surface-variant": "#353535",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-tertiary": "#571e00",
+                        "error": "#ffb4ab",
+                        "on-background": "#e2e2e2",
+                        "outline": "#8b90a0",
+                        "surface-container": "#1f1f1f",
+                        "outline-variant": "#414755",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#4c1a00",
+                        "on-secondary": "#313030"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "squircle": "2.5rem" // Custom roundness for the island
+                    },
+                    spacing: {
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin": "20px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "unit": "16px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "body-md": ["15px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+                        "label-md": ["13px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+                        "body-lg": ["17px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "400" }],
+                        "label-sm": ["11px", { lineHeight: "13px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "headline-sm": ["17px", { lineHeight: "22px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "headline-lg": ["34px", { lineHeight: "41px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }]
+                    },
+                    boxShadow: {
+                        'island': '0 25px 50px -12px rgba(0, 0, 0, 0.75)',
+                        'glow': '0 0 20px rgba(173, 198, 255, 0.3)'
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Spring Physics Interactions */
+        .spring-press {
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .spring-press:active {
+            transform: scale(0.92);
+        }
+
+        /* Glassmorphism utility */
+        .glass-acrylic {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+        }
+
+        /* Rim light specifically for the dynamic island */
+        .rim-light-blue {
+            box-shadow: inset 0 1px 0px 0px rgba(173, 198, 255, 0.25), 
+                        inset 1px 0 0px 0px rgba(173, 198, 255, 0.15),
+                        0 25px 50px -12px rgba(0, 0, 0, 0.9);
+        }
+        
+        .rim-light-button {
+             box-shadow: inset 0 1px 0px 0px rgba(255, 255, 255, 0.15);
+        }
+
+        /* Animated Sphere Glow */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px rgba(173, 198, 255, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 15px rgba(173, 198, 255, 0.8); transform: scale(1.05); }
+            100% { box-shadow: 0 0 5px rgba(173, 198, 255, 0.4); transform: scale(1); }
+        }
+        .spatial-sphere {
+            animation: pulse-glow 3s infinite ease-in-out;
+            background: radial-gradient(circle at 30% 30%, theme('colors.primary-container'), theme('colors.primary-fixed-dim'));
+        }
+
+        /* App backdrop blur to emphasize overlay */
+        .app-backdrop-blur {
+            backdrop-filter: blur(10px) brightness(0.6);
+            -webkit-backdrop-filter: blur(10px) brightness(0.6);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen relative overflow-hidden flex flex-col items-center pt-sm md:pt-md">
+<!-- Simulated App Background underneath -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-50" data-alt="A futuristic UI dashboard background for an audio application. Dark theme with subtle metallic textures and electric blue data visualizations. Deep blacks, high contrast, minimalist design. Soft studio lighting creating subtle gradients across the surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNqKV0kppwlNTm_E8Uya9msRL_vQ3rn9pRCkdoeSveaOFG7AakLNiTGjR_fxQexye6UDOr_T51jsF4Hp2WHA6TQCtAW1ZbOmF2exTWnRuWe9UBvf5xF7MChGM8zWIhDGVo284erS8AC4uDswsdXRrx2kfjLfxqgscrJsKxWgLwsyD32eO-wWsYOwOJ7bhjkDYYrfUDJtCb979kOC1ln8EQhyqG4zdiIfOMu8AfMzHE0v2GyWvpK9eAOzeDP4oB5PTeq_VkCYvcU_uF"/>
+</div>
+<!-- Backdrop overlay to dim the rest of the screen -->
+<div class="absolute inset-0 z-10 app-backdrop-blur pointer-events-none"></div>
+<!-- Dynamic Island Container -->
+<div class="z-20 w-full max-w-[380px] px-sm mt-2 transition-all duration-500 ease-out">
+<!-- Expanded State -->
+<div class="glass-acrylic rounded-[40px] rim-light-blue p-lg flex flex-col gap-lg shadow-glow relative overflow-hidden group">
+<!-- Top Row: Status -->
+<div class="flex justify-between items-center w-full">
+<!-- Left: Animated Sphere -->
+<div class="w-10 h-10 rounded-full spatial-sphere flex-shrink-0 relative overflow-hidden">
+<div class="absolute inset-0 bg-white/20 rounded-full blur-[2px]"></div>
+</div>
+<!-- Center: Info -->
+<div class="flex flex-col items-center justify-center flex-grow px-sm text-center">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Echo Space Pro</h2>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-1 opacity-90">Spatial Volume Engine</span>
+</div>
+<!-- Right: Battery -->
+<div class="flex items-center gap-xs flex-shrink-0 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+<span class="font-label-md text-label-md text-on-surface">100%</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">battery_full</span>
+</div>
+</div>
+<!-- Bottom Row: Controls -->
+<div class="flex justify-center items-center gap-xl w-full pt-sm border-t border-white/5">
+<!-- Skip Previous -->
+<button class="spring-press flex items-center justify-center w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 rim-light-button transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]" style="font-variation-settings: 'FILL' 1;">skip_previous</span>
+</button>
+<!-- Play/Pause -->
+<button class="spring-press flex items-center justify-center w-16 h-16 rounded-full bg-primary hover:bg-primary/90 transition-colors shadow-[0_0_20px_rgba(173,198,255,0.2)]">
+<span class="material-symbols-outlined text-on-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Skip Next -->
+<button class="spring-press flex items-center justify-center w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 rim-light-button transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]" style="font-variation-settings: 'FILL' 1;">skip_next</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

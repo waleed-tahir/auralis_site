@@ -1,16 +1,89 @@
-# React + Vite
+<div align="center">
+  <img src="public/icons.svg" alt="Auralis Logo" width="80" height="80" />
+  <h1>AURALIS</h1>
+  <p><strong>The future of high-fidelity spatial audio.</strong></p>
+  
+  [![Live Demo](https://img.shields.io/badge/Live_Demo-View_Site-0052cc?style=for-the-badge&logo=vercel)](https://waleed-tahir.github.io/auralis_site/)
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<br/>
 
-Currently, two official plugins are available:
+## 🌐 Live Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Experience the live interactive prototype here:  
+**👉 [https://waleed-tahir.github.io/auralis_site/](https://waleed-tahir.github.io/auralis_site/) 👈**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features & Showcases
 
-## Expanding the Oxlint configuration
+Auralis is a meticulously designed marketing and product portfolio site built with React, Vite, and TailwindCSS. It features scroll-driven animations, an interactive iOS-style App Prototype, and complex isometric SVGs to showcase premium audio hardware.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### 1. Scroll-Driven App Timeline
+An interactive 400vh scrolling container where the companion app seamlessly crossfades through various interfaces, including an animated Dynamic Island.
+
+<div align="center">
+  <img src="public/app_concept.png" alt="App Concept" width="800" />
+</div>
+
+<br/>
+
+### 2. Adaptive Spatial Audio Engine
+Immersive 3D audio mapping with ANC mode selection.
+<div align="center">
+  <img src="public/screens/spatial.png" alt="Spatial Audio Screen" width="400" />
+</div>
+
+<br/>
+
+### 3. Master Tuning & Equalizer
+6-band equalizer with per-frequency precision control and timbre shaping.
+<div align="center">
+  <img src="public/screens/tune.png" alt="Tune Control" width="400" />
+</div>
+
+<br/>
+
+### 4. Live Acoustic Analytics
+Live spectrum analysis with dB levels, purity scores, and active time.
+<div align="center">
+  <img src="public/screens/analytics.png" alt="Analytics Dashboard" width="400" />
+</div>
+
+---
+
+## 🛠️ Technology Stack
+
+- **Framework**: React 19 + Vite
+- **Styling**: TailwindCSS v4 with a custom premium "Ice & Silver" palette (`#ADC6FF`, `#C8CCD4`, `#050508`).
+- **Icons**: Lucide React
+- **Animations**: Custom scroll-linked intersection observers (`useElementScrollProgress`), Web Audio API synthetics, and CSS springs.
+
+## 🚀 Local Development
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/waleed-tahir/auralis_site.git
+   cd auralis_site
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## 📦 Deployment (GitHub Pages)
+
+Deployment is automated using the `gh-pages` package. 
+To manually trigger a deployment from your local machine:
+```bash
+npm run deploy
+```
+*Note: Ensure that the `base` property in `vite.config.js` is set to `./` so paths resolve correctly.*

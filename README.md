@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/icons.svg" alt="Auralis Logo" width="80" height="80" />
+  <img src="public/favicon.png" alt="Auralis Logo" width="80" height="80" />
   <h1>AURALIS</h1>
   <p><strong>The future of high-fidelity spatial audio.</strong></p>
   
@@ -21,10 +21,6 @@ Auralis is a meticulously designed marketing and product portfolio site built wi
 
 ### 1. Scroll-Driven App Timeline
 An interactive 400vh scrolling container where the companion app seamlessly crossfades through various interfaces, including an animated Dynamic Island.
-
-<div align="center">
-  <img src="public/app_concept.png" alt="App Concept" width="800" />
-</div>
 
 <br/>
 
@@ -48,6 +44,16 @@ Immersive 3D audio mapping with ANC mode selection.
 Live spectrum analysis with dB levels, purity scores, and active time.
 <div align="center">
   <img src="public/screens/analytics.png" alt="Analytics Dashboard" width="400" />
+</div>
+
+---
+
+## 🎨 Website Design
+
+<div align="center">
+  <img src="public/screenshots/design_hero.png" alt="Auralis Hero Section" width="800" />
+  <br/><br/>
+  <img src="public/screenshots/design_tech.png" alt="Auralis Technology Section" width="800" />
 </div>
 
 ---

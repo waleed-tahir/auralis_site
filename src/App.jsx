@@ -793,28 +793,28 @@ const APP_SCREENS = [
   {
     id: 'tune',
     label: 'Tune',
-    src: '/screens/tune.png',
+    src: 'screens/tune.png',
     accent: '#adc6ff',
     desc: 'Master 6-band equalizer with per-frequency precision control and timbre shaping.'
   },
   {
     id: 'spatial',
     label: 'Spatial',
-    src: '/screens/spatial.png',
+    src: 'screens/spatial.png',
     accent: '#adc6ff',
     desc: 'Spatial Volume Engine — immersive 3D audio mapping with ANC mode selection.'
   },
   {
     id: 'analytics',
     label: 'Analytics',
-    src: '/screens/analytics.png',
+    src: 'screens/analytics.png',
     accent: '#adc6ff',
     desc: 'Live acoustic spectrum analysis with dB levels, purity scores and active time.'
   },
   {
     id: 'settings',
     label: 'Settings',
-    src: '/screens/settings.png',
+    src: 'screens/settings.png',
     accent: '#adc6ff',
     desc: 'Full device management: LDAC codec, multipoint, spatial personalization & auto-pause.'
   },
@@ -936,7 +936,7 @@ const HeroPhoneFan = ({ isPlaying, toggleSound, scrollP }) => {
               {/* Dynamic Island overlay when playing */}
               {idx === activeIdx && isPlaying && (
                 <div style={{ position:'absolute', top:'10px', left:'50%', transform:'translateX(-50%)', zIndex:30, width:'88%' }}>
-                  <img src="/screens/dynamic_island.png" alt="Dynamic Island" style={{ width:'100%', borderRadius:'16px' }} />
+                  <img src="screens/dynamic_island.png" alt="Dynamic Island" style={{ width:'100%', borderRadius:'16px' }} />
                 </div>
               )}
 
@@ -1145,7 +1145,7 @@ const AppPrototype = () => {
                   className="absolute top-3.5 left-1/2 -translate-x-1/2 z-40 w-[90%] animate-fade-in"
                 >
                   <img
-                    src="/screens/dynamic_island.png"
+                    src="screens/dynamic_island.png"
                     alt="Dynamic Island Notification"
                     className="w-full rounded-[1.5rem]"
                   />

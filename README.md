@@ -4,6 +4,9 @@
   <p><strong>The future of high-fidelity spatial audio.</strong></p>
   
   [![Live Demo](https://img.shields.io/badge/Live_Demo-View_Site-0052cc?style=for-the-badge&logo=vercel)](https://waleed-tahir.github.io/auralis_site/)
+  [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
+  [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 </div>
 
 <br/>
@@ -15,81 +18,82 @@ Experience the live interactive prototype here:
 
 ---
 
-## ✨ Features & Showcases
+## 🎬 Showcases
 
-Auralis is a meticulously designed marketing and product portfolio site built with React, Vite, and TailwindCSS. It features scroll-driven animations, an interactive iOS-style App Prototype, and complex isometric SVGs to showcase premium audio hardware.
+Auralis is a meticulously designed marketing and product portfolio site built to highlight premium audio hardware and software.
 
-### 1. Scroll-Driven App Timeline
+### Website Design & Scroll Animation
+Features smooth scroll-driven animations, an isometric blueprint view, a dynamic "bento grid" layout, and a custom scrolling 3D phone fan effect.
+
+<div align="center">
+  <img src="public/demos/web_design.webp" alt="Website Design Demo" width="800" />
+</div>
+
+<br/>
+
+### Interactive App Prototype
 An interactive 400vh scrolling container where the companion app seamlessly crossfades through various interfaces, including an animated Dynamic Island.
 
-<br/>
-
-### 2. Adaptive Spatial Audio Engine
-Immersive 3D audio mapping with ANC mode selection.
 <div align="center">
-  <img src="public/screens/spatial.png" alt="Spatial Audio Screen" width="400" />
-</div>
-
-<br/>
-
-### 3. Master Tuning & Equalizer
-6-band equalizer with per-frequency precision control and timbre shaping.
-<div align="center">
-  <img src="public/screens/tune.png" alt="Tune Control" width="400" />
-</div>
-
-<br/>
-
-### 4. Live Acoustic Analytics
-Live spectrum analysis with dB levels, purity scores, and active time.
-<div align="center">
-  <img src="public/screens/analytics.png" alt="Analytics Dashboard" width="400" />
+  <img src="public/demos/app_design.webp" alt="App Prototype Demo" width="800" />
 </div>
 
 ---
 
-## 🎨 Website Design
+## ✨ Key Features
 
-<div align="center">
-  <img src="public/screenshots/design_hero.png" alt="Auralis Hero Section" width="800" />
-  <br/><br/>
-  <img src="public/screenshots/design_tech.png" alt="Auralis Technology Section" width="800" />
-</div>
+- **Hero Fan Animation:** Scroll-driven overlapping devices that fan out cleanly and precisely without centering issues.
+- **Bento Grid Presentation:** Cards that fade into focus seamlessly as you scroll down, highlighting product benefits and technology.
+- **Isometric SVG Blueprint:** A complex, scroll-linked animated blueprint showcasing internal hardware composition and chip structures.
+- **Sticky App Prototype:** A fully functional mock iOS app interface featuring 4 distinct modes (Spatial, Tune, Analytics, Settings) that transition smoothly based on scroll progress or manual button clicks.
+- **Premium Aesthetics:** Uses a tailored "Ice & Silver" palette (`#ADC6FF`, `#C8CCD4`, `#050508`) with sleek glassmorphism, micro-animations, and dynamic canvas backgrounds.
 
 ---
 
 ## 🛠️ Technology Stack
 
 - **Framework**: React 19 + Vite
-- **Styling**: TailwindCSS v4 with a custom premium "Ice & Silver" palette (`#ADC6FF`, `#C8CCD4`, `#050508`).
+- **Styling**: TailwindCSS v4
 - **Icons**: Lucide React
-- **Animations**: Custom scroll-linked intersection observers (`useElementScrollProgress`), Web Audio API synthetics, and CSS springs.
+- **Animations**: Custom React hooks (`useElementScrollProgress`, `useWindowScrollY`) to link DOM scroll positions directly to inline styles and transforms.
+- **Audio API**: Web Audio API synthetics for live 3D sound processing and ANC visualization.
+
+---
 
 ## 🚀 Local Development
+
+Follow these steps to get the project up and running locally.
 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/waleed-tahir/auralis_site.git
    cd auralis_site
    ```
+
 2. **Install dependencies:**
    ```bash
    npm install
    ```
+
 3. **Run the development server:**
    ```bash
    npm run dev
    ```
+
 4. **Build for production:**
    ```bash
    npm run build
    ```
 
+---
+
 ## 📦 Deployment (GitHub Pages)
 
 Deployment is automated using the `gh-pages` package. 
-To manually trigger a deployment from your local machine:
+
+To manually trigger a deployment from your local machine to the `gh-pages` branch, simply run:
 ```bash
 npm run deploy
 ```
-*Note: Ensure that the `base` property in `vite.config.js` is set to `./` so paths resolve correctly.*
+
+*(Note: The `base` property in `vite.config.js` is set to `./` so relative paths resolve correctly in production.)*
